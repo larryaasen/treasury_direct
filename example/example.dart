@@ -9,6 +9,7 @@ void main() async {
 
   print('Total row received: ${list.mostRecentList.length}');
   for (DebtEntry entry in list.mostRecentList) {
-    print('${DebtEntry.dateFormatted(entry.effectiveDate)}: ${DebtEntry.currencyShortened(entry.totalDebt, false)}');
+    print(
+        '${DebtEntry.dateFormatted(entry.effectiveDate)}: ${DebtEntry.currencyShortened(entry.totalDebt, false)}');
   }
 }

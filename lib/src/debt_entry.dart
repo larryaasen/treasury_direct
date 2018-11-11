@@ -50,8 +50,7 @@ class DebtEntry {
     var newDate;
     try {
       newDate = fmt.parse(sDate);
-    }
-    on Exception {
+    } on Exception {
       print("cannot parse date ($sDate). using now.");
       newDate = DateTime.now();
     }
@@ -78,7 +77,7 @@ class DebtEntry {
   }
 
   static double trillions(double value) {
-    return value/1000000000000;
+    return value / 1000000000000;
   }
 
   static String _shortened(double value, double originalValue) {
@@ -86,12 +85,15 @@ class DebtEntry {
       return _shortened(-value, originalValue);
     }
 
-    if (value < 1) return (value*100).toInt().toString() + "¢";
+    if (value < 1) return (value * 100).toInt().toString() + "¢";
     if (value < 1000) return "\$" + value.toStringAsFixed(2);
-    if (value < 1000000) return "\$" + (value/1000).toStringAsFixed(2) + "K";
-    if (value < 1000000000) return "\$" + (value/1000000).toStringAsFixed(2) + "M";
-    if (value < 1000000000000) return "\$" + (value/1000000000).toStringAsFixed(2) + "B";
-    if (value < 1000000000000000) return "\$" + (value/1000000000000).toStringAsFixed(2) + "T";
+    if (value < 1000000) return "\$" + (value / 1000).toStringAsFixed(2) + "K";
+    if (value < 1000000000)
+      return "\$" + (value / 1000000).toStringAsFixed(2) + "M";
+    if (value < 1000000000000)
+      return "\$" + (value / 1000000000).toStringAsFixed(2) + "B";
+    if (value < 1000000000000000)
+      return "\$" + (value / 1000000000000).toStringAsFixed(2) + "T";
 
     return value.toStringAsFixed(2);
   }
