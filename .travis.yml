@@ -6,6 +6,6 @@ dart:
   - stable
 
 dart_task:
-  - test
+  - test: --coverage --coverage-path=lcov.info
   - dartfmt
   - dartanalyzer
