@@ -6,6 +6,10 @@ dart:
   - stable
 
 dart_task:
-  - test: --coverage --coverage-path=lcov.info
+  - test
   - dartfmt
   - dartanalyzer
+
+after_success:
+  - pub global activate coverage
+  - pub global run coverage:collect_coverage
