@@ -1,0 +1,11 @@
+#.travis.yml
+language: dart
+
+dart:
+  - dev
+  - stable
+
+dart_task:
+  - test
+  - dartfmt
+  - dartanalyzer
