@@ -1,6 +1,6 @@
 # treasury_direct
 
-[![Build Status](https://travis-ci.org/larryaasen/treasury_direct.svg?branch=master)](https://travis-ci.org/larryaasen/treasury_direct)    [![codecov](https://codecov.io/gh/larryaasen/treasury_direct/branch/master/graph/badge.svg)](https://codecov.io/gh/larryaasen/treasury_direct)
+[![Build Status](https://travis-ci.org/larryaasen/treasury_direct.svg?branch=master)](https://travis-ci.org/larryaasen/treasury_direct)    [![codecov](https://codecov.io/gh/larryaasen/treasury_direct/branch/master/graph/badge.svg)](https://codecov.io/gh/larryaasen/treasury_direct) [![pub package](https://img.shields.io/pub/v/treasury_direct.svg)](https://pub.dartlang.org/packages/treasury_direct)
 
 A Dart library package to access the debt of the United States from the US Treasury Direct site. Can be used in a command line app or in a Flutter app.
 
