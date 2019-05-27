@@ -2,7 +2,7 @@
 language: dart
 
 dart:
-  - dev
+  # - dev
   - stable
 
 dart_task:
@@ -15,7 +15,7 @@ script:
   - pub run test
   - pub global activate coverage
   - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
-  - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused
+  - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
 
 after_success:
   - bash <(curl -s https://codecov.io/bash) -f coverage.json
