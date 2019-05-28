@@ -6,13 +6,13 @@ dart:
   - stable
 
 dart_task:
-  # - test
+  - test
   - dartfmt
   - dartanalyzer
 
-script:
+# script:
   # - pub get
-  - pub run test
+  # - pub run test
   # - pub global activate coverage
   # - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
   # - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
