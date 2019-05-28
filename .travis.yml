@@ -6,7 +6,7 @@ dart:
   - stable
 
 dart_task:
-  - test
+  # - test
   - dartfmt
   - dartanalyzer
 
