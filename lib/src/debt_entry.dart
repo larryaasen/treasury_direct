@@ -84,16 +84,25 @@ class DebtEntry {
     if (value < 0.0) {
       return _shortened(-value, originalValue);
     }
+    if (value < 1) {
+      return (value * 100).toInt().toString() + "¢";
+    }
+    if (value < 1000) {
+      return "\$" + value.toStringAsFixed(2);
+    }
+    if (value < 1000000) {
+      return "\$" + (value / 1000).toStringAsFixed(2) + "K";
+    }
 
-    if (value < 1) return (value * 100).toInt().toString() + "¢";
-    if (value < 1000) return "\$" + value.toStringAsFixed(2);
-    if (value < 1000000) return "\$" + (value / 1000).toStringAsFixed(2) + "K";
-    if (value < 1000000000)
+    if (value < 1000000000) {
       return "\$" + (value / 1000000).toStringAsFixed(2) + "M";
-    if (value < 1000000000000)
+    }
+    if (value < 1000000000000) {
       return "\$" + (value / 1000000000).toStringAsFixed(2) + "B";
-    if (value < 1000000000000000)
+    }
+    if (value < 1000000000000000) {
       return "\$" + (value / 1000000000000).toStringAsFixed(2) + "T";
+    }
 
     return value.toStringAsFixed(2);
   }

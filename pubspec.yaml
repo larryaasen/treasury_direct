@@ -1,5 +1,5 @@
 name: treasury_direct
-version: 0.1.1
+version: 0.1.2
 
 description: A Dart library package to access the debt of the United States from the US Treasury Direct site.
 author: Larry Aasen <larryaasen@gmail.com>
@@ -9,11 +9,11 @@ environment:
   sdk: ">=2.0.0-dev.68.0 <3.0.0"
 
 dependencies:
-  async: ^2.0.8
-  convert: ^2.0.2
-  http: ^0.12.0
-  intl: ^0.15.7
+  async: ^2.4.0
+  convert: ^2.1.1
+  http: ^0.12.0+2
+  intl: ^0.16.0
 
 dev_dependencies:
-  test: ^1.5.1
-  coverage: ^0.12.3
+  test: ^1.9.4
+  coverage: ^0.13.3+1
