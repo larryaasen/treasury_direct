@@ -2,8 +2,10 @@ name: example
 version: 0.1.0
 
 environment:
-  sdk: ">=2.0.0-dev.68.0 <3.0.0"
+  sdk: '>=2.1.0 <3.0.0'
 
 dependencies:
-  async: ^2.4.0
+  async: ^2.3.0
 
+  treasury_direct:
+    path: ../
