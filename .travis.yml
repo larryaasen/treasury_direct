@@ -4,7 +4,7 @@ dart:
   - stable
 
 dart_task:
-  - dartanalyzer: --fatal-warnings .
+  - dartanalyzer: --fatal-warnings --fatal-infos .
   - dartfmt
   - test
 
@@ -14,9 +14,7 @@ dart_task:
 #   - pub global activate coverage
 #   - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
 #   - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
-
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
+#   - bash <(curl -s https://codecov.io/bash)
 
 cache:
   directories:
