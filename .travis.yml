@@ -1,21 +1,24 @@
-#.travis.yml
 language: dart
 
 dart:
-  # - dev
   - stable
 
 dart_task:
-  # - test
-  # - dartfmt
-  # - dartanalyzer
+  - dartanalyzer
+  - dartfmt
+  - test
 
-# script:
-  # - pub get
+script:
+  - pub get
   - pub run test
-  # - pub global activate coverage
-  # - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
-  # - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
+  - pub global activate coverage
+  - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
+  - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
 
 after_success:
-  # - bash <(curl -s https://codecov.io/bash) -f coverage.json
+  - bash <(curl -s https://codecov.io/bash) -f coverage.json
+
+cache:
+  directories:
+    - $HOME/.pub-cache
+    - .dart_tool/build
