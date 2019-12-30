@@ -13,7 +13,7 @@ void main() {
     expect(list != null, true);
     expect(list.totalRows, greaterThan(6485));
     expect(list.mostRecentList.length, equals(10));
-    for (DebtEntry entry in list.mostRecentList) {
+    for (var entry in list.mostRecentList) {
       validateDebtEntry(entry);
     }
   });

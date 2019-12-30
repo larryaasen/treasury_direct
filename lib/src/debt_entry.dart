@@ -9,7 +9,7 @@ class DebtEntry {
   double change;
 
   DebtEntry({
-    this.effectiveDate = "",
+    this.effectiveDate = '',
     this.governmentHoldings = 0.0,
     this.totalDebt = 0.0,
     this.change = 0.0,
@@ -18,9 +18,7 @@ class DebtEntry {
   // Keep a cached version of the effectiveDate
   DateTime _date;
   DateTime date() {
-    if (_date == null) {
-      _date = convertToDate(effectiveDate);
-    }
+    _date ??= convertToDate(effectiveDate);
     return _date;
   }
 
@@ -44,14 +42,14 @@ class DebtEntry {
   static DateTime convertToDate(String sDate) {
     if (sDate == null) return null;
 
-    final fmt = DateFormat.yMMMMd("en_US");
+    final fmt = DateFormat.yMMMMd('en_US');
     if (fmt == null) return null;
 
     var newDate;
     try {
       newDate = fmt.parse(sDate);
     } on Exception {
-      print("cannot parse date ($sDate). using now.");
+      print('cannot parse date ($sDate). using now.');
       newDate = DateTime.now();
     }
 
@@ -61,7 +59,7 @@ class DebtEntry {
   static String dateFormatted(String value) {
     final date = convertToDate(value);
 
-    final dateString = DateFormat("MMM d, y").format(date);
+    final dateString = DateFormat('MMM d, y').format(date);
     return dateString;
   }
 
@@ -69,7 +67,7 @@ class DebtEntry {
     var short = _shortened(value, value);
 
     if (includePrefix) {
-      var prefix = value > 0.0 ? "+" : value < 0.0 ? "-" : "";
+      var prefix = value > 0.0 ? '+' : value < 0.0 ? '-' : '';
       return prefix + short;
     }
 
@@ -85,23 +83,23 @@ class DebtEntry {
       return _shortened(-value, originalValue);
     }
     if (value < 1) {
-      return (value * 100).toInt().toString() + "¢";
+      return (value * 100).toInt().toString() + '¢';
     }
     if (value < 1000) {
-      return "\$" + value.toStringAsFixed(2);
+      return '\$' + value.toStringAsFixed(2);
     }
     if (value < 1000000) {
-      return "\$" + (value / 1000).toStringAsFixed(2) + "K";
+      return '\$' + (value / 1000).toStringAsFixed(2) + 'K';
     }
 
     if (value < 1000000000) {
-      return "\$" + (value / 1000000).toStringAsFixed(2) + "M";
+      return '\$' + (value / 1000000).toStringAsFixed(2) + 'M';
     }
     if (value < 1000000000000) {
-      return "\$" + (value / 1000000000).toStringAsFixed(2) + "B";
+      return '\$' + (value / 1000000000).toStringAsFixed(2) + 'B';
     }
     if (value < 1000000000000000) {
-      return "\$" + (value / 1000000000000).toStringAsFixed(2) + "T";
+      return '\$' + (value / 1000000000000).toStringAsFixed(2) + 'T';
     }
 
     return value.toStringAsFixed(2);

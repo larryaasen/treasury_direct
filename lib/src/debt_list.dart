@@ -10,7 +10,7 @@ class DebtList {
     final totalRows = json['totalRows'];
     final entries = json['entries'];
 
-    var newEntries = List<DebtEntry>();
+    var newEntries = <DebtEntry>[];
 
     if (entries is List<dynamic>) {
       for (final entry in entries) {
@@ -22,7 +22,7 @@ class DebtList {
     }
 
     // Compute the diffs
-    int index = 0;
+    var index = 0;
     for (final entryLater in newEntries) {
       if (index + 1 < newEntries.length) {
         final entryEarlier = newEntries[index + 1];
