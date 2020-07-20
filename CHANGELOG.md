@@ -1,3 +1,7 @@
+## 2.0.0
+
+* Updated the Treasury API endpoint to use the new endpoint: https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny. Documentation here: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/.
+
 ## 0.1.4
 
 * Minor updates based on Health suggestions from pub.dev, utilizing pedanctic.

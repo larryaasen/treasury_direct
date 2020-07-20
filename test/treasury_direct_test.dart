@@ -11,11 +11,18 @@ void main() {
 
     final list = await td.downloadDebtFeedAsync();
     expect(list != null, true);
-    expect(list.totalRows, greaterThan(6485));
+    expect(list.totalRows, greaterThan(3700));
     expect(list.mostRecentList.length, equals(10));
     for (var entry in list.mostRecentList) {
       validateDebtEntry(entry);
     }
+
+    final entry1 = list.mostRecentList[0];
+    final entry2 = list.mostRecentList[1];
+    final entry3 = list.mostRecentList[2];
+    expect(entry1.date().isAtSameMomentAs(entry2.date()), isFalse);
+    expect(entry1.date().isAfter(entry2.date()), isTrue);
+    expect(entry2.date().isAfter(entry3.date()), isTrue);
   });
 
   test('download 1024', () async {
@@ -24,7 +31,7 @@ void main() {
 
     final list = await td.downloadDebtFeedAsync(pagesize: 1024);
     expect(list != null, true);
-    expect(list.totalRows, greaterThan(6485));
+    expect(list.totalRows, greaterThan(3700));
     expect(list.mostRecentList.length, equals(1024));
   });
 
@@ -33,17 +40,13 @@ void main() {
     expect(td != null, true);
 
     expect(td.urlString(),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=0&pagenum=0&pagesize=10');
+        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=10&sort=-record_date');
     expect(td.urlString(pagesize: 25),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=0&pagenum=0&pagesize=25');
+        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=25&sort=-record_date');
     expect(td.urlString(pagenum: 25),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=0&pagenum=25&pagesize=10');
-    expect(td.urlString(filterscount: 25),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=25&pagenum=0&pagesize=10');
+        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=10&sort=-record_date');
     expect(td.urlString(pagesize: 25, pagenum: 25),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=0&pagenum=25&pagesize=25');
-    expect(td.urlString(pagesize: 25, pagenum: 25, filterscount: 25),
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=25&pagenum=25&pagesize=25');
+        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=25&sort=-record_date');
   });
 
   test('DebtEntry.shortened', () {
@@ -74,7 +77,7 @@ void main() {
 }
 
 void validateDebtEntry(DebtEntry entry) {
-  expect(entry.effectiveDate.length, greaterThan(10));
+  expect(entry.effectiveDate.length, greaterThanOrEqualTo(10));
   expect(entry.governmentHoldings, greaterThan(10000));
   expect(entry.totalDebt, greaterThan(10000));
   expect(entry.change, isNot(0));

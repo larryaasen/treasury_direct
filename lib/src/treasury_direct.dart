@@ -7,9 +7,9 @@ import 'package:treasury_direct/src/debt_list.dart';
 
 class TreasuryDirect {
   Future<DebtList> downloadDebtFeedAsync(
-      {int pagesize = 10, int pagenum = 0, int filterscount = 0}) async {
-    final result = await http.get(urlString(
-        pagesize: pagesize, pagenum: pagenum, filterscount: filterscount));
+      {int pagesize = 10, int pagenum = 1}) async {
+    final result =
+        await http.get(urlString(pagesize: pagesize, pagenum: pagenum));
 
     var body = result.body;
     final jsonResponse = json.decode(body);
@@ -19,9 +19,10 @@ class TreasuryDirect {
     return debtList;
   }
 
-  String urlString({int pagesize = 10, int pagenum = 0, int filterscount = 0}) {
+  /// Documentation: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/
+  String urlString({int pagesize = 10, int pagenum = 1}) {
     var provider =
-        'https://www.treasurydirect.gov/NP_WS/debt/jqsearch.json?filterscount=$filterscount&pagenum=$pagenum&pagesize=$pagesize';
+        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=$pagenum&page[size]=$pagesize&sort=-record_date';
     final url = provider;
     return url;
   }

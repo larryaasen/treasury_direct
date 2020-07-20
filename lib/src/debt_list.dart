@@ -7,13 +7,15 @@ class DebtList {
   DebtList({this.totalRows = 0, this.mostRecentList});
 
   static DebtList listFromJSON(Map<String, dynamic> json) {
-    final totalRows = json['totalRows'];
-    final entries = json['entries'];
+    final meta = json['meta'];
+    final totalCount = meta['total-count'];
+
+    final data = json['data'];
 
     var newEntries = <DebtEntry>[];
 
-    if (entries is List<dynamic>) {
-      for (final entry in entries) {
+    if (data is List<dynamic>) {
+      for (final entry in data) {
         if (entry is Map<String, dynamic>) {
           final newEntry = DebtEntry.debtFromJSON(entry);
           newEntries.add(newEntry);
@@ -31,7 +33,7 @@ class DebtList {
       index++;
     }
 
-    var newList = DebtList(totalRows: totalRows, mostRecentList: newEntries);
+    var newList = DebtList(totalRows: totalCount, mostRecentList: newEntries);
 
     return newList;
   }

@@ -2,7 +2,7 @@
 
 [![Build Status](https://travis-ci.org/larryaasen/treasury_direct.svg?branch=master)](https://travis-ci.org/larryaasen/treasury_direct)    [![codecov](https://codecov.io/gh/larryaasen/treasury_direct/branch/master/graph/badge.svg)](https://codecov.io/gh/larryaasen/treasury_direct) [![pub package](https://img.shields.io/pub/v/treasury_direct.svg)](https://pub.dartlang.org/packages/treasury_direct)
 
-A Dart library package to access the debt of the United States from the US Treasury Direct site. Can be used in a command line app or in a Flutter app.
+A Dart library package to access the debt of the United States from the US Treasury site. This package can be used in a command line app or in a Flutter app.
 
 ## Example
 
@@ -44,5 +44,5 @@ Oct 22, 2018: $21.67T
 Oct 19, 2018: $21.67T
 ```
 
-## Treasury Direct API Docs:
-https://www.treasurydirect.gov/webapis/webapisdebt.htm
+## Debt to the Penny API Docs:
+https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/
