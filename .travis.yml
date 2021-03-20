@@ -4,8 +4,8 @@ dart:
   - stable
 
 dart_task:
-  - dartanalyzer: --fatal-warnings --fatal-infos .
-  - dartfmt
+  - dart analyze --fatal-warnings --fatal-infos .
+  - dart format --set-exit-if-changed .
   - test
 
 # script:

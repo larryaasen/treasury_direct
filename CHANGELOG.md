@@ -1,3 +1,7 @@
+## 2.1.0
+
+* Changed package http version requirement to >=0.12.2 and updated documentation.
+
 ## 2.0.1
 
 * Downgraded package async to 2.4.0 because flutter_driver still requires version 2.4.1.

@@ -1,11 +1,18 @@
 import 'package:intl/intl.dart';
 
-/// One entry for the debt for the day
+/// One entry for the debt for the day.
+/// Reference: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny
 class DebtEntry {
-  // Raw data
+  /// The date that data was published.
   String effectiveDate;
+
+  ///  Holdings	Government Account Series (GAS) securities held by Government trust funds, revolving funds, and special funds; and Federal Financing Bank (FFB) securities.
   double governmentHoldings;
+
+  ///Total of intragovernmental holdings and debt held by the public.
   double totalDebt;
+
+  /// The amount of change from the previous entry.
   double change;
 
   DebtEntry({
@@ -20,14 +27,17 @@ class DebtEntry {
   // Keep a cached version of the effectiveDate
   DateTime _date;
 
+  /// The effectiveDate as a [DateTime].
   DateTime date() {
     _date ??= convertToDate(effectiveDate);
     return _date;
   }
 
+  /// A string representation of this object.
   @override
   String toString() => 'DebtEntry{totalDebt: $totalDebt}';
 
+  /// Convert map to [DebtEntry].
   static DebtEntry debtFromJSON(Map<String, dynamic> json) {
     final effectiveDate = json['record_date'];
     final governmentHoldings = double.parse(json['intragov_hold_amt']);
@@ -42,6 +52,7 @@ class DebtEntry {
     );
   }
 
+  /// Convert value to date.
   static DateTime convertToDate(String sDate) {
     if (sDate == null) return null;
 
@@ -56,6 +67,7 @@ class DebtEntry {
     return newDate;
   }
 
+  /// Format the date.
   static String dateFormatted(String value) {
     final date = convertToDate(value);
     if (date == null) return null;
@@ -64,17 +76,23 @@ class DebtEntry {
     return dateString;
   }
 
+  /// Convert current value to a shortened version.
   static String currencyShortened(double value, bool includePrefix) {
     var short = _shortened(value, value);
 
     if (includePrefix) {
-      var prefix = value > 0.0 ? '+' : value < 0.0 ? '-' : '';
+      var prefix = value > 0.0
+          ? '+'
+          : value < 0.0
+              ? '-'
+              : '';
       return prefix + short;
     }
 
     return short;
   }
 
+  /// Convert value to trillions.
   static double trillions(double value) {
     return value / 1000000000000;
   }

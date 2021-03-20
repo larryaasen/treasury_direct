@@ -1,11 +1,13 @@
 import 'debt_entry.dart';
 
+/// A list of debt entries.
 class DebtList {
   final int totalRows;
   final List<DebtEntry> mostRecentList;
 
   DebtList({this.totalRows = 0, this.mostRecentList});
 
+  /// Create a list from JSON data.
   static DebtList listFromJSON(Map<String, dynamic> json) {
     final meta = json['meta'];
     final totalCount = meta['total-count'];
