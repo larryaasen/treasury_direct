@@ -10,7 +10,7 @@ environment:
 dependencies:
   async: ^2.4.0
   convert: ^2.1.1
-  http: '>=0.12.2'
+  http: '>=0.12.2 <1.0.0'
   intl: ^0.16.1
 
 dev_dependencies:
