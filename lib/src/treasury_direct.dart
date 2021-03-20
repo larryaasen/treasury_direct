@@ -11,8 +11,8 @@ class TreasuryDirect {
   /// asynchronously.
   Future<DebtList> downloadDebtFeedAsync(
       {int pagesize = 10, int pagenum = 1}) async {
-    final result =
-        await http.get(urlString(pagesize: pagesize, pagenum: pagenum));
+    final result = await http
+        .get(Uri.parse(urlString(pagesize: pagesize, pagenum: pagenum)));
 
     var body = result.body;
     final jsonResponse = json.decode(body);
