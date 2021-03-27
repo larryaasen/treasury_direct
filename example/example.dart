@@ -3,7 +3,7 @@ import 'package:treasury_direct/src/debt_entry.dart';
 
 void main() async {
   final td = TreasuryDirect();
-  final list = await td.downloadDebtFeedAsync(pagesize: 15);
+  final list = await td.downloadDebtFeedAsync(pagesize: 10000);
 
   print('Total possible rows: ${list.totalRows}');
 

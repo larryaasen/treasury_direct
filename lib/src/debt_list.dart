@@ -20,7 +20,9 @@ class DebtList {
       for (final entry in data) {
         if (entry is Map<String, dynamic>) {
           final newEntry = DebtEntry.debtFromJSON(entry);
-          newEntries.add(newEntry);
+          if (newEntry != null) {
+            newEntries.add(newEntry);
+          }
         }
       }
     }

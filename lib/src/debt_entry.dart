@@ -40,8 +40,19 @@ class DebtEntry {
   /// Convert map to [DebtEntry].
   static DebtEntry debtFromJSON(Map<String, dynamic> json) {
     final effectiveDate = json['record_date'];
-    final governmentHoldings = double.parse(json['intragov_hold_amt']);
-    final totalDebt = double.parse(json['tot_pub_debt_out_amt']);
+    var governmentHoldings, totalDebt;
+    try {
+      governmentHoldings = double.parse(json['intragov_hold_amt']);
+    } catch (e) {
+      print("DebtEntry.debtFromJSON: intragov_hold_amt exception: $e");
+      print("DebtEntry.debtFromJSON: json: $json");
+    }
+    try {
+      totalDebt = double.parse(json['tot_pub_debt_out_amt']);
+    } catch (e) {
+      print("DebtEntry.debtFromJSON: tot_pub_debt_out_amt exception: $e");
+      print("DebtEntry.debtFromJSON: json: $json");
+    }
     final change = 1.0;
 
     return DebtEntry(
