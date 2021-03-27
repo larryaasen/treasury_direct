@@ -42,7 +42,10 @@ class DebtEntry {
     final effectiveDate = json['record_date'];
     var governmentHoldings, totalDebt;
     try {
-      governmentHoldings = double.parse(json['intragov_hold_amt']);
+      final amt = json['intragov_hold_amt'];
+      if (amt != null && amt != 'null') {
+        governmentHoldings = double.parse(amt);
+      }
     } catch (e) {
       print("DebtEntry.debtFromJSON: intragov_hold_amt exception: $e");
       print("DebtEntry.debtFromJSON: json: $json");

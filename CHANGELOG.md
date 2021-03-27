@@ -1,7 +1,11 @@
+## 2.3.0
+
+* Fixed bug when intragov_hold_amt was null.
+
 ## 2.2.0
 
 * Fixed crash when intragov_hold_amt was null.
- 
+
 ## 2.1.0
 
 * Changed package http version requirement to >=0.12.2 and updated documentation.
