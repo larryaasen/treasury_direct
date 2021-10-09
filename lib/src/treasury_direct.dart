@@ -26,7 +26,7 @@ class TreasuryDirect {
   ///Documentation: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/
   String urlString({int pagesize = 10, int pagenum = 1}) {
     var provider =
-        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=$pagenum&page[size]=$pagesize&sort=-record_date';
+        'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=$pagenum&page[size]=$pagesize&sort=-record_date';
     final url = provider;
     return url;
   }

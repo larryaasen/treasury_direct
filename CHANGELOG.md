@@ -1,3 +1,7 @@
+## 2.4.0
+
+* Changed API domain from www.transparency.treasury.gov to api.fiscaldata.treasury.gov.
+
 ## 2.3.0
 
 * Fixed bug when intragov_hold_amt was null.

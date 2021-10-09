@@ -25,23 +25,24 @@ void main() async {
 
 Expected output:
 ```text
-Total possible rows: 6486
-Total row received: 15
-Nov 8, 2018: $21.73T
-Nov 7, 2018: $21.69T
-Nov 6, 2018: $21.69T
-Nov 5, 2018: $21.68T
-Nov 2, 2018: $21.68T
-Nov 1, 2018: $21.68T
-Oct 31, 2018: $21.70T
-Oct 30, 2018: $21.70T
-Oct 29, 2018: $21.70T
-Oct 26, 2018: $21.69T
-Oct 25, 2018: $21.70T
-Oct 24, 2018: $21.67T
-Oct 23, 2018: $21.68T
-Oct 22, 2018: $21.67T
-Oct 19, 2018: $21.67T
+Total possible rows: 7156
+Total row received: 7156
+Oct 7, 2021: $28.43T
+Oct 6, 2021: $28.43T
+Oct 5, 2021: $28.43T
+Oct 4, 2021: $28.43T
+Oct 1, 2021: $28.43T
+Sep 30, 2021: $28.43T
+Sep 29, 2021: $28.43T
+Sep 28, 2021: $28.43T
+Sep 27, 2021: $28.43T
+Sep 24, 2021: $28.43T
+Sep 23, 2021: $28.43T
+Sep 22, 2021: $28.43T
+Sep 21, 2021: $28.43T
+Sep 20, 2021: $28.43T
+Sep 17, 2021: $28.43T
+...
 ```
 
 ## Debt to the Penny API Docs:

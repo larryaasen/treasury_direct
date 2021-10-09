@@ -40,13 +40,13 @@ void main() {
     expect(td != null, true);
 
     expect(td.urlString(),
-        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=10&sort=-record_date');
+        'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=10&sort=-record_date');
     expect(td.urlString(pagesize: 25),
-        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=25&sort=-record_date');
+        'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=1&page[size]=25&sort=-record_date');
     expect(td.urlString(pagenum: 25),
-        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=10&sort=-record_date');
+        'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=10&sort=-record_date');
     expect(td.urlString(pagesize: 25, pagenum: 25),
-        'https://www.transparency.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=25&sort=-record_date');
+        'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=25&page[size]=25&sort=-record_date');
   });
 
   test('DebtEntry.shortened', () {
