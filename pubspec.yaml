@@ -1,5 +1,5 @@
 name: treasury_direct
-version: 2.3.0
+version: 2.4.0
 
 description: A Dart library package to access the debt of the United States from the US Treasury Direct site.
 homepage: https://github.com/larryaasen/treasury_direct
