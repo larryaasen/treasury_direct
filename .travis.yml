@@ -3,10 +3,6 @@ sudo: false
 dart:
 # Install the latest stable release
 - stable
-# Install the latest beta release
-- beta
-# Install the latest dev release
-- dev
 
 dart_task:
   - dart analyze --fatal-warnings --fatal-infos .
