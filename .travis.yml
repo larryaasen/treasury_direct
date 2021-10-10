@@ -7,7 +7,7 @@ dart:
 dart_task:
   - dart analyze --fatal-warnings --fatal-infos .
   - dart format --set-exit-if-changed .
-  - test
+  - test --coverage=lcov.info
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)

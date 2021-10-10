@@ -6,3 +6,4 @@
 .pub
 packages
 pubspec.lock
+treasury_direct_test.dart.vm.json
