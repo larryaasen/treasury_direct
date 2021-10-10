@@ -7,18 +7,18 @@ dart:
 dart_task:
   - dart analyze --fatal-warnings --fatal-infos .
   - dart format --set-exit-if-changed .
-  - test --coverage=lcov.info
+  # - test --coverage=lcov.info
 
-after_success:
-  - bash <(curl -s https://codecov.io/bash)
-
-# script:
+script:
 #   - pub get
-#   - pub run test
+  - pub run test --coverage=lcov.info
 #   - pub global activate coverage
 #   - dart --pause-isolates-on-exit --enable-vm-service=8111 test/treasury_direct_test.dart &
 #   - pub global run coverage:collect_coverage --port=8111 --out=coverage.json --resume-isolates --wait-paused --connect-timeout=20
 #   - bash <(curl -s https://codecov.io/bash)
+
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
 
 cache:
   directories:
