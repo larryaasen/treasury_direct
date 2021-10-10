@@ -1,3 +1,7 @@
+## 3.0.0
+
+* Upgraded to null safety.
+
 ## 2.4.0
 
 * Changed API domain from www.transparency.treasury.gov to api.fiscaldata.treasury.gov.

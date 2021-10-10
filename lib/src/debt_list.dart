@@ -2,8 +2,8 @@ import 'debt_entry.dart';
 
 /// A list of debt entries.
 class DebtList {
-  final int totalRows;
-  final List<DebtEntry> mostRecentList;
+  final int? totalRows;
+  final List<DebtEntry>? mostRecentList;
 
   DebtList({this.totalRows = 0, this.mostRecentList});
 
@@ -20,9 +20,7 @@ class DebtList {
       for (final entry in data) {
         if (entry is Map<String, dynamic>) {
           final newEntry = DebtEntry.debtFromJSON(entry);
-          if (newEntry != null) {
-            newEntries.add(newEntry);
-          }
+          newEntries.add(newEntry);
         }
       }
     }
@@ -32,7 +30,7 @@ class DebtList {
     for (final entryLater in newEntries) {
       if (index + 1 < newEntries.length) {
         final entryEarlier = newEntries[index + 1];
-        entryLater.change = entryLater.totalDebt - entryEarlier.totalDebt;
+        entryLater.change = entryLater.totalDebt! - entryEarlier.totalDebt!;
       }
       index++;
     }

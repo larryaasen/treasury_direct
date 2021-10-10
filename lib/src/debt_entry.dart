@@ -4,13 +4,13 @@ import 'package:intl/intl.dart';
 /// Reference: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/debt-to-the-penny
 class DebtEntry {
   /// The date that data was published.
-  String effectiveDate;
+  String? effectiveDate;
 
   ///  Holdings	Government Account Series (GAS) securities held by Government trust funds, revolving funds, and special funds; and Federal Financing Bank (FFB) securities.
-  double governmentHoldings;
+  double? governmentHoldings;
 
   ///Total of intragovernmental holdings and debt held by the public.
-  double totalDebt;
+  double? totalDebt;
 
   /// The amount of change from the previous entry.
   double change;
@@ -25,10 +25,10 @@ class DebtEntry {
   static final DateFormat _fmt = DateFormat('y-M-d');
 
   // Keep a cached version of the effectiveDate
-  DateTime _date;
+  DateTime? _date;
 
   /// The effectiveDate as a [DateTime].
-  DateTime date() {
+  DateTime? date() {
     _date ??= convertToDate(effectiveDate);
     return _date;
   }
@@ -67,7 +67,7 @@ class DebtEntry {
   }
 
   /// Convert value to date.
-  static DateTime convertToDate(String sDate) {
+  static DateTime? convertToDate(String? sDate) {
     if (sDate == null) return null;
 
     var newDate;
@@ -82,7 +82,7 @@ class DebtEntry {
   }
 
   /// Format the date.
-  static String dateFormatted(String value) {
+  static String? dateFormatted(String value) {
     final date = convertToDate(value);
     if (date == null) return null;
 
