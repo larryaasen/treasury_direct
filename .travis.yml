@@ -9,6 +9,9 @@ dart_task:
   - dart format --set-exit-if-changed .
   - test
 
+after_success:
+  - bash <(curl -s https://codecov.io/bash)
+
 # script:
 #   - pub get
 #   - pub run test
