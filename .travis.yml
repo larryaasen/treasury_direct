@@ -1,5 +1,5 @@
+os: linux
 language: dart
-sudo: false
 dart:
 # Install the latest stable release
 - stable
