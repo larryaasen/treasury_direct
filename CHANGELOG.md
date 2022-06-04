@@ -1,3 +1,7 @@
+## 3.0.1
+
+* Minor updates to resolve static analysis issues. Updated example.
+
 ## 3.0.0
 
 * Upgraded to null safety.

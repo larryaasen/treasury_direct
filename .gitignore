@@ -8,3 +8,4 @@ packages
 pubspec.lock
 treasury_direct_test.dart.vm.json
 lcov.info
+build

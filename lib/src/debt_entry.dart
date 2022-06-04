@@ -40,7 +40,7 @@ class DebtEntry {
   /// Convert map to [DebtEntry].
   static DebtEntry debtFromJSON(Map<String, dynamic> json) {
     final effectiveDate = json['record_date'];
-    var governmentHoldings, totalDebt;
+    double governmentHoldings = 0.0, totalDebt = 0.0;
     try {
       final amt = json['intragov_hold_amt'];
       if (amt != null && amt != 'null') {

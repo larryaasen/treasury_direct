@@ -1,7 +1,6 @@
 import 'package:test/test.dart';
 
 import 'package:treasury_direct/treasury_direct.dart';
-import 'package:treasury_direct/src/debt_entry.dart';
 
 /// Tests the Treasury Direct library.
 void main() {
