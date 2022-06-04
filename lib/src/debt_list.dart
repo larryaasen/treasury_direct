@@ -10,11 +10,11 @@ class DebtList {
   /// Create a list from JSON data.
   static DebtList listFromJSON(Map<String, dynamic> json) {
     final meta = json['meta'];
-    final totalCount = meta['total-count'];
+    final totalCount = meta['total-count'] as int?;
 
     final data = json['data'];
 
-    var newEntries = <DebtEntry>[];
+    final newEntries = <DebtEntry>[];
 
     if (data is List<dynamic>) {
       for (final entry in data) {
@@ -35,7 +35,7 @@ class DebtList {
       index++;
     }
 
-    var newList = DebtList(totalRows: totalCount, mostRecentList: newEntries);
+    final newList = DebtList(totalRows: totalCount, mostRecentList: newEntries);
 
     return newList;
   }

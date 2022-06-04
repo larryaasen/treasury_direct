@@ -39,23 +39,35 @@ class DebtEntry {
 
   /// Convert map to [DebtEntry].
   static DebtEntry debtFromJSON(Map<String, dynamic> json) {
-    final effectiveDate = json['record_date'];
+    String effectiveDate = '';
+    try {
+      effectiveDate = json['record_date'] as String;
+    } on Exception catch (e) {
+      print('DebtEntry.debtFromJSON: record_date exception: $e');
+      print('DebtEntry.debtFromJSON: json: $json');
+    }
+
     double governmentHoldings = 0.0, totalDebt = 0.0;
     try {
-      final amt = json['intragov_hold_amt'];
+      final amt = json['intragov_hold_amt'] as String?;
       if (amt != null && amt != 'null') {
         governmentHoldings = double.parse(amt);
       }
     } catch (e) {
-      print("DebtEntry.debtFromJSON: intragov_hold_amt exception: $e");
-      print("DebtEntry.debtFromJSON: json: $json");
+      print('DebtEntry.debtFromJSON: intragov_hold_amt exception: $e');
+      print('DebtEntry.debtFromJSON: json: $json');
     }
+
     try {
-      totalDebt = double.parse(json['tot_pub_debt_out_amt']);
+      final amt = json['tot_pub_debt_out_amt'] as String?;
+      if (amt != null && amt != 'null') {
+        totalDebt = double.parse(amt);
+      }
     } catch (e) {
-      print("DebtEntry.debtFromJSON: tot_pub_debt_out_amt exception: $e");
-      print("DebtEntry.debtFromJSON: json: $json");
+      print('DebtEntry.debtFromJSON: tot_pub_debt_out_amt exception: $e');
+      print('DebtEntry.debtFromJSON: json: $json');
     }
+
     final change = 1.0;
 
     return DebtEntry(
@@ -70,7 +82,7 @@ class DebtEntry {
   static DateTime? convertToDate(String? sDate) {
     if (sDate == null) return null;
 
-    var newDate;
+    DateTime newDate;
     try {
       newDate = _fmt.parse(sDate);
     } catch (e) {
@@ -92,10 +104,10 @@ class DebtEntry {
 
   /// Convert current value to a shortened version.
   static String currencyShortened(double value, bool includePrefix) {
-    var short = _shortened(value, value);
+    final short = _shortened(value, value);
 
     if (includePrefix) {
-      var prefix = value > 0.0
+      final prefix = value > 0.0
           ? '+'
           : value < 0.0
               ? '-'
@@ -116,23 +128,23 @@ class DebtEntry {
       return _shortened(-value, originalValue);
     }
     if (value < 1) {
-      return (value * 100).toInt().toString() + '¢';
+      return '${(value * 100).toInt()}¢';
     }
     if (value < 1000) {
-      return '\$' + value.toStringAsFixed(2);
+      return '\$${value.toStringAsFixed(2)}';
     }
     if (value < 1000000) {
-      return '\$' + (value / 1000).toStringAsFixed(2) + 'K';
+      return '\$${(value / 1000).toStringAsFixed(2)}K';
     }
 
     if (value < 1000000000) {
-      return '\$' + (value / 1000000).toStringAsFixed(2) + 'M';
+      return '\$${(value / 1000000).toStringAsFixed(2)}M';
     }
     if (value < 1000000000000) {
-      return '\$' + (value / 1000000000).toStringAsFixed(2) + 'B';
+      return '\$${(value / 1000000000).toStringAsFixed(2)}B';
     }
     if (value < 1000000000000000) {
-      return '\$' + (value / 1000000000000).toStringAsFixed(2) + 'T';
+      return '\$${(value / 1000000000000).toStringAsFixed(2)}T';
     }
 
     return value.toStringAsFixed(2);

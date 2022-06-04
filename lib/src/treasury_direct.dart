@@ -14,10 +14,10 @@ class TreasuryDirect {
     final result = await http
         .get(Uri.parse(urlString(pagesize: pagesize, pagenum: pagenum)));
 
-    var body = result.body;
-    final jsonResponse = json.decode(body);
+    final body = result.body;
+    final jsonResponse = json.decode(body) as Map<String, dynamic>;
 
-    var debtList = DebtList.listFromJSON(jsonResponse);
+    final debtList = DebtList.listFromJSON(jsonResponse);
 
     return debtList;
   }
@@ -25,7 +25,7 @@ class TreasuryDirect {
   /// Creates the URL to the endpoint.
   ///Documentation: https://fiscaldata.treasury.gov/datasets/debt-to-the-penny/
   String urlString({int pagesize = 10, int pagenum = 1}) {
-    var provider =
+    final provider =
         'https://api.fiscaldata.treasury.gov/services/api/fiscal_service/v2/accounting/od/debt_to_penny?page[number]=$pagenum&page[size]=$pagesize&sort=-record_date';
     final url = provider;
     return url;

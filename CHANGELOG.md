@@ -1,3 +1,7 @@
+## 3.0.2
+
+* Minor updates to resolve static analysis issues.
+
 ## 3.0.1
 
 * Minor updates to resolve static analysis issues. Updated example.
