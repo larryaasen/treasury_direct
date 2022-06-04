@@ -10,8 +10,8 @@ dart_task:
 
 script:
   - dart test --coverage=coverage
-  - pub global activate coverage
-  - pub global run coverage:format_coverage --in coverage/test/treasury_direct_test.dart.vm.json --out lcov.info --lcov
+  - dart pub global activate coverage
+  - dart pub global run coverage:format_coverage --in coverage/test/treasury_direct_test.dart.vm.json --out lcov.info --lcov
 
 after_success:
   - bash <(curl -s https://codecov.io/bash)
