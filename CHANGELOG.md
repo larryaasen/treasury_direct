@@ -1,3 +1,7 @@
+## 3.1.1
+
+* Updated dependency version for http.
+
 ## 3.1.0
 
 * Updated dependency package versions, and allowed Dart version 3.
