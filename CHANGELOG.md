@@ -1,3 +1,7 @@
+## 3.1.0
+
+* Updated dependency package versions, and allowed Dart version 3.
+
 ## 3.0.2
 
 * Minor updates to resolve static analysis issues.
